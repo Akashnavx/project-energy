@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 @Data
 @Entity
-@Table(name = "fleets")
+@Table(name = "fleets")        //table name in database
 public class Fleet {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
