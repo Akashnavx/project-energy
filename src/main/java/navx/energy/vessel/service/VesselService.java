@@ -1,5 +1,6 @@
 package navx.energy.vessel.service;
 
+import navx.energy.exception.ResourceNotFoundException;
 import navx.energy.vessel.repository.FleetRepository;
 import navx.energy.vessel.repository.VesselRepository;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,8 @@ public class VesselService {
     }
 
     public Map<String, Object> getParticularBoatDetails(String vesselId) {
+//        throw new ResourceNotFoundException("No vessel found with ID: " + vesselId);
+
         // Logic: vesselRepository.findById(vesselId)
         return Map.of(
                 "vesselId", vesselId,

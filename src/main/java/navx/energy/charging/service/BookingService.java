@@ -6,6 +6,7 @@ import navx.energy.charging.entity.ChargingStation;
 import navx.energy.charging.repository.BookingSlotRepository;
 import navx.energy.charging.repository.ChargerPodRepository;
 import navx.energy.charging.repository.ChargingStationRepository;
+import navx.energy.exception.InvalidBookingException;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -38,6 +39,7 @@ public class BookingService {
     }
 
     public BookingSlot createBookingSafely(String chargerId, String vesselId, String idempotencyKey) {
+//        throw new InvalidBookingException("pod not allowed to book " + chargerId);
         Optional<BookingSlot> existingBooking = slotRepo.findByIdempotencyKey(idempotencyKey);
         if (existingBooking.isPresent()) {
             return existingBooking.get();
